@@ -34,16 +34,168 @@ source("Import_GSS_2014_haven.R")
 ### Graphical Descriptive Results
 
 <!--Graphical results here.  Make sure to show your code.  Provide appropriate labels for axes, giving units if possible, and provide a good title for the graph, too.  Use the graphical results to describe the patterns if any that exist in the data as focused toward the research question!-->
+```{r echo=FALSE}
+race_table=xtabs(~race + owngun, data=n2014,exclude = "NA")
+```
 
+```{r}
+barchartGC(race_table,type="percent" , main= "Race vs. Gun Ownership")
+```
+
+After viewing this data graphically, it appears that WHITE, BLACK, and OTHER all voted "no" on gun ownership. This means that people should not own guns themselves.
+```{r echo=FALSE}
+sex_table=xtabs(~sex + owngun, data=n2014,exclude = "NA")
+```
+
+```{r}
+barchartGC(sex_table,type="percent" , main= "Sex vs. Gun Ownership")
+
+```
+
+In this dataset, the comparison we can determine is that both males and females say "no" to gun ownership.
+
+```{r echo=FALSE}
+polviews_table=xtabs(~polviews + owngun, data=n2014,exclude = "NA")
+```
+```{r}
+barchartGC(polviews_table,type="percent" , main= "Political Beliefs vs. Gun Ownership")
+
+```
+
+In this dataset we are still seeing a lot of "no" between the groups.
+
+```{r echo=FALSE}
+cappun_table=xtabs(~cappun + owngun, data=n2014,exclude = "NA")
+```
+
+```{r}
+barchartGC(cappun_table,type="percent" , main= "Capital Punishment vs. Gun Ownership")
+
+```
+ALthough in this dataset, the idea of no ownership of guns stands strong especially with those that believe in capital punishment. 
+
+```{r echo=FALSE}
+god_table=xtabs(~god + owngun, data=n2014,exclude = "NA")
+```
+
+```{r}
+barchartGC(god_table,type="percent", main= "Belief in God vs. Gun Ownership")
+```
+The relationship that we can see here is that it is completely even between all of the groups, saying "yes" or "no". 
+
+Based on our graphical results, the relationship shown between the groups form the survey is that a lot of the participants are saying "no" to gun ownership. There is hardly any chance that one of these groups will change their response to yes. The only relationship is the comparison of belief in God and gun ownership. Each group had over 60% vote "no" and about 35% vote "yes".
 ### Numerical Descriptive Results
 
 <!--Numerical results go here. Use the numerical results to describe the patterns if any that exist in the data as focused toward the research question!-->
 
+To view the results of our data numerically, we will use a two-way table with row percents using the rowPerc function from the tigerstats package.
+
+
+```{r}
+rowPerc(race_table)
+```
+Of those in the WHITE group, 39.01% voted YES on gun ownership, 60.99% voted NO.
+Of those in the BLACK group, 16.87% voted YES on gun ownership, 83.13% voted NO.
+Of those in the OTHER group, 13.93% voted YES on gun ownership, 86.07% voted NO.
+After viewing the data numerically, both BLACK and OTHER strongly voted NO on gun ownership, whereas the group WHITE had more Yes's on gun ownership compared to the two other groups. 
+
+```{r}
+rowPerc(sex_table)
+```
+Of those in the MALE group, 39.76% voted YES, 60.24% voted NO.
+Of those in the FEMALE group, 27.32% voted YES, 72.68 voted NO.
+We can see that more FEMALES voted NO on gun ownership than the MALES.
+
+```{r}
+rowPerc(polviews_table)
+```
+Of those in the LIBERAL group, 24.52% voted YES, 75.48% voted NO.
+Of those in the MODERATE group, 33.20% voted YES, 66.80% voted NO.
+Of those in the CONSERVATIVE group, 42.17% voted YES, 57.83% voted NO.
+Regardless of political views, all three groups want nothing to do with gun ownership.
+
+```{r}
+rowPerc(cappun_table)
+```
+Of those in the FAVOR group 41.44% voted YES, 58.56% voted NO.
+Of those in the OPPOSE group 20.58% voted YES, 79.42% voted NO. 
+Although both groups have the majority decision of NO, those that oppose capital punishment want nothing to do with gun ownership. This could mean that if someone doesn't believe in capital punishment, they obviously do not like guns either.
+
+
+```{r}
+rowPerc(god_table)
+```
+Comparing the No's, MAYBE's, and YES's we can seee that about 30% voted YES on gun ownership and about 68% voted NO. We can see that there are more people who do not beleive in GOD that want nothing to do with gun ownership.
+
+
 # Inferential Results
 
 <!--State hypothesis clearly.  Make sure your discussion of the inferential test covers all the aspects that the test output produces, such as test statistic, p-value etc.  Make a decision about the null hypothesis, explain the assumptions on which the selected test/procedure was based, and why the chosen procedure satisfys the assumptions and is appropriate to answer the research question!-->
+But, looking at the graphical and numerical results alone is not enough to tell us if these results also apply to the population at large. To do this, we will need to run an inferential test. The one we will use is the chi-square test.
+
+We will now need to run four chi-square tests using the chisqtestGC function from the tigerstats package. We will run each test with the assumption that there is no relationship between belief in the Big Bang and the other variable in question; race, sex, political views, belief on capital punishment and belief in God.
 
 
+Belief in Gun Ownership vs. Sex:
+ We will form our two hypothesis
+ 
+ Ho Belief in gun ownership is independent of Sex.
+ Ha belief in gun ownership and sex are related. (not independent)
+ 
+ 
+```{r}
+chisqtestGC(sex_table)
+```
+Our P-Value is 0. The chances of getting such a result are infinitely small if the null hypothes is true. We therefore choose to reject the null hypothesis. So it appears that Sex and belief in gun ownership are related.
+
+
+Belief in Gun Ownership vs. Race
+Our two hypothesis:
+
+Ho: Belief in gun ownership is independent of Race.
+Ha: Belief in gun ownership and Race are related. (not independent)
+
+```{r}
+chisqtestGC(race_table)
+```
+Our P-Value is 0. The chances of getting such a result are infinitely small if the null hypothesis is true. We therefore choose to reject the null hypothesis. So it appears that Race and belief in gun ownership are related.
+
+
+Belief in Gun Ownership vs. Political views:
+Our two hypothesis are:
+
+Ho: Belief in gun ownership is independent of political view.
+Ha: Belief in gun ownership and political views are related. (not independent)
+
+```{r}
+chisqtestGC(polviews_table)
+```
+Our P-Value is 0. The chances of getting such a result are infinitesimally small if the null hypothesis is true. We therefore choose to reject the null hypothesis. So it appears that political views and belief in gun ownership are related.
+
+
+Belief in Gun Ownership vs Belief in Capital Punishment:
+Our two hypothesis are:
+
+Ho: Belief in gun ownership is independent of belief in capital punishment.
+Ha: Belief in gun ownership and belief in capital punishment are related. (not independent)
+
+```{r}
+chisqtestGC(cappun_table)
+```
+Our P-Value is 0. The chances of getting such a result are infinitesimally small if the null hypothesis is true. We therefore choose to reject the null hypothesis. So it appears that belief in capital punishment and belief in gun ownership are related.
+
+
+Belief in Gun Ownership vs. Belief in God:
+Our two hypothesis are:
+
+Ho: Belief in gun ownership is independent of belief in God.
+Ha: Belief in gun ownership and belief in God are related. (not independent)
+
+
+```{r}
+chisqtestGC(god_table)
+```
+Our P-Value is 0.9739. This means the probability of getting a sample like this under conditions when the null hypothesis is true, is about 1 in 100 (about one percent). This is below our threshold of belief (which is typically five percent). Since the P-Value is too low, we will reject the null hypothesis and conclude that there is a relationship between belief in God and belief in Gun Ownership.
 # Discussion and Conclusion
 
 <!--Discussion and conclusion here.  If you found a relationship be sure to consider whether the relationship occurs because one of the variables causes the other, or whether they perhasps are related for some other reason.  Watch the chapter 6 videos from the GeorgeTown videos collection.!-->
