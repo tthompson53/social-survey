@@ -221,3 +221,18 @@ Our P-Value is 0.9739. This means the probability of getting a sample like this 
 # Discussion and Conclusion
 
 <!--Discussion and conclusion here.  If you found a relationship be sure to consider whether the relationship occurs because one of the variables causes the other, or whether they perhasps are related for some other reason.  Watch the chapter 6 videos from the GeorgeTown videos collection.!-->
+After viewing the results graphically, numerically, and running chi-square tests on the data, we can conclude the following:
+
+Race and gun ownership are related.
+Sex and gun ownership are related.
+Political views and gun ownership are related.
+Belief in capital punishment and gun ownership are related.
+Belief in God and gun ownership are related.
+
+If we were to make a profile of those that voted YES on gun ownership they might be WHITE, MALE, CONSERVATIVE, in FAVOR of capital punishment, and MAYBE believe or ACTUALLY believe in GOD.
+
+If we were to make a profile of those that voted NO on gun ownership they might be BLACK or OTHER, FEMALE, LIBERAL or MODERATE, OPPOSE capital punishment, and DO NOT believe in GOD. 
+
+So without taking any other variables into account, there is a relationship between race, sex, political beliefs, beliefs on capital punishment, belief in God and gun ownership. Many participants in these groups voted NO on gun ownership but it seems as though they are influenced by their specific group. It would be interesting to research a generation gap on gun ownership. Would there be a relationship with age and gun ownership? The GSS data has over 3000 different variables which means there are many different factors to compare.
+
+
