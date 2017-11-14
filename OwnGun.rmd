@@ -161,7 +161,8 @@ We will now need to run four chi-square tests using the chisqtestGC function fro
 Belief in Gun Ownership vs. Sex:
  We will form our two hypothesis
  
- Ho Belief in gun ownership is independent of Sex.
+ Ho Belief in gun ownership is independent of Sex.  
+ 
  Ha belief in gun ownership and sex are related. (not independent)
  
  
@@ -173,9 +174,11 @@ Our P-Value is 0. The chances of getting such a result are infinitely small if t
 
 Belief in Gun Ownership vs. Race
 Our two hypothesis:
+ 
+Ho: Belief in gun ownership is independent of Race.  
 
-Ho: Belief in gun ownership is independent of Race.
-Ha: Belief in gun ownership and Race are related. (not independent)
+Ha: Belief in gun ownership and Race are related. (not independent)  
+
 
 ```{r}
 chisqtestGC(race_table)
@@ -186,8 +189,10 @@ Our P-Value is 0. The chances of getting such a result are infinitely small if t
 Belief in Gun Ownership vs. Political views:
 Our two hypothesis are:
 
-Ho: Belief in gun ownership is independent of political view.
-Ha: Belief in gun ownership and political views are related. (not independent)
+Ho: Belief in gun ownership is independent of political view.  
+
+Ha: Belief in gun ownership and political views are related. (not independent)  
+
 
 ```{r}
 chisqtestGC(polviews_table)
@@ -198,8 +203,10 @@ Our P-Value is 0. The chances of getting such a result are infinitesimally small
 Belief in Gun Ownership vs Belief in Capital Punishment:
 Our two hypothesis are:
 
-Ho: Belief in gun ownership is independent of belief in capital punishment.
-Ha: Belief in gun ownership and belief in capital punishment are related. (not independent)
+Ho: Belief in gun ownership is independent of belief in capital punishment.  
+
+Ha: Belief in gun ownership and belief in capital punishment are related. (not independent)  
+
 
 ```{r}
 chisqtestGC(cappun_table)
@@ -210,8 +217,10 @@ Our P-Value is 0. The chances of getting such a result are infinitesimally small
 Belief in Gun Ownership vs. Belief in God:
 Our two hypothesis are:
 
-Ho: Belief in gun ownership is independent of belief in God.
-Ha: Belief in gun ownership and belief in God are related. (not independent)
+Ho: Belief in gun ownership is independent of belief in God.  
+
+Ha: Belief in gun ownership and belief in God are related. (not independent)  
+
 
 
 ```{r}
