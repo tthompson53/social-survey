@@ -32,19 +32,19 @@ Our research question is:
 The data for the General Social Survey is large, having 2044 observations, 3542 variables, and includes not only the 2010 data, but data from 2012 and 2014. To make the data easier to use, we must trim it down. We will be using r code stored in a separate .r file to help do this.
 We start with GSS data from the three years and then use the select function from the dplyr package to extract 12 variables that we think are important, but for this research paper, we will only be using the following variables; belief in the gun ownership, race, sex, political beliefs,opinions on capitol punishment and belief in God. But, we still need to clean the data up a bit more. This was done in the following ways:
 
-  Gun ownership was originally recorded as YES, NO, IAP, REFUSED, and DK. Using the revalue function, we changed the IAP, REFUSED and DK value to NA.
+  * Gun ownership was originally recorded as **YES**, **NO**, **IAP**, **REFUSED**, and **DK**. Using the revalue function, we changed the **IAP**, **REFUSED** and **DK** value to **NA**.
 
-  Race was originally recorded as having WHITE, BLACK, OTHER, and IAP. Using the revalue function, we changed the IAP value to that of NA.
+  * Race was originally recorded as having **WHITE**, **BLACK**, **OTHER**, and **IAP**. Using the revalue function, we changed the **IAP** value to that of **NA**.
 
-  For sex, it originally had three values; MALE, FEMALE, and IAP. Again, using the revalue function, we changed the IAP to an NA value.
+  * For sex, it originally had three values; **MALE**, **FEMALE**, and **IAP**. Again, using the revalue function, we changed the **IAP** to an **NA** value.
 
-  For political beliefs, it was orginally recorded as having 6 different levels. Using the revalue function, we condensed the number of levels down to three. For the responses of IAP and "DK" we changed the value to NA. For the responses of EXTREMELY LIBERAL and SLIGHTLY LIBERAL we changed the value to LIBERAL. For the responses of SLIGHTLY CONSERVATIVE and EXTREMELY CONSERVATIVE we changed the value to CONSERVATIVE.
+  * For political beliefs, it was orginally recorded as having 6 different levels. Using the revalue function, we condensed the number of levels down to three. For the responses of **IAP** and **DK** we changed the value to **NA**. For the responses of **EXTREMELY LIBERAL** and **SLIGHTLY LIBERAL** we changed the value to **LIBERA**L. For the responses of SLIGHTLY CONSERVATIVE and EXTREMELY CONSERVATIVE we changed the value to **CONSERVATIVE**.
 
-  Capital punishment was origninally recorded as IAP and NA. Usinf the revalue function, we changed the IAP value to that of NA.
+  * Capital punishment was origninally recorded as **IAP** and **NA**. Usinf the revalue function, we changed the **IAP** value to that of **NA**.
 
-  One’s belief in God was originally recorded as having 8 different levels. Again, using the revalue function, we condensed the number of levels down to four. For the responses DONT BELIEVE and NO WAY TO FIND OUT, we changed the value to no. For the responses SOME HIGHER POWER, BELIEVE SOMETIMES, BELIEVE BUT DOUBTS, and DK (for don’t know), we had them represented by the value maybe. For the response KNOW GOD EXISTS, we used the value yes. For the response IAP, we used the value NA.
+  * One’s belief in God was originally recorded as having 8 different levels. Again, using the revalue function, we condensed the number of levels down to four. For the responses **DONT BELIEVE** and **NO WAY TO FIND OUT**, we changed the value to no. For the responses **SOME HIGHER POWER**, **BELIEVE SOMETIMES**, **BELIEVE BUT DOUBTS**, and **DK** (for don’t know), we had them represented by the value maybe. For the response **KNOW GOD EXISTS**, we used the value yes. For the response **IAP**, we used the value **NA**.
 
-To help answer our research question, we will be omitting all NA responses, and then view the results of the data both graphically and numerically. Since we will be comparing factor variables, we will use bar charts and two-way tables. Then, finally, we will do an inferential test using the chi-square test.
+To help answer our research question, we will be omitting all **NA** responses, and then view the results of the data both graphically and numerically. Since we will be comparing factor variables, we will use bar charts and two-way tables. Then, finally, we will do an inferential test using the chi-square test.
 
 
 #Results
@@ -116,38 +116,38 @@ To view the results of our data numerically, we will use a two-way table with ro
 ```{r}
 rowPerc(race_table)
 ```
-Of those in the WHITE group, 39.01% voted YES on gun ownership, 60.99% voted NO.
-Of those in the BLACK group, 16.87% voted YES on gun ownership, 83.13% voted NO.
-Of those in the OTHER group, 13.93% voted YES on gun ownership, 86.07% voted NO.
-After viewing the data numerically, both BLACK and OTHER strongly voted NO on gun ownership, whereas the group WHITE had more Yes's on gun ownership compared to the two other groups. 
+Of those in the **WHITE** group, 39.01% voted **YES** on gun ownership, 60.99% voted **NO**.
+Of those in the **BLACK** group, 16.87% voted **YES** on gun ownership, 83.13% voted **NO**.
+Of those in the **OTHER** group, 13.93% voted **YES** on gun ownership, 86.07% voted **NO**.
+After viewing the data numerically, both **BLAC**K and **OTHER** strongly voted **NO** on gun ownership, whereas the group **WHITE** had more **YES** on gun ownership compared to the two other groups. 
 
 ```{r}
 rowPerc(sex_table)
 ```
-Of those in the MALE group, 39.76% voted YES, 60.24% voted NO.
-Of those in the FEMALE group, 27.32% voted YES, 72.68 voted NO.
-We can see that more FEMALES voted NO on gun ownership than the MALES.
+Of those in the **MALE** group, 39.76% voted **YES**, 60.24% voted **NO**.
+Of those in the **FEMALE** group, 27.32% voted **YES**, 72.68 voted **NO**.
+We can see that more FEMALES voted NO on gun ownership than the **MALES**.
 
 ```{r}
 rowPerc(polviews_table)
 ```
-Of those in the LIBERAL group, 24.52% voted YES, 75.48% voted NO.
-Of those in the MODERATE group, 33.20% voted YES, 66.80% voted NO.
-Of those in the CONSERVATIVE group, 42.17% voted YES, 57.83% voted NO.
+Of those in the **LIBERAL** group, 24.52% voted **YES**, 75.48% voted **NO**.
+Of those in the **MODERATE** group, 33.20% voted **YES**, 66.80% voted **NO**.
+Of those in the **CONSERVATIVE** group, 42.17% voted **YES**, 57.83% voted **NO**.
 Regardless of political views, all three groups want nothing to do with gun ownership.
 
 ```{r}
 rowPerc(cappun_table)
 ```
-Of those in the FAVOR group 41.44% voted YES, 58.56% voted NO.
-Of those in the OPPOSE group 20.58% voted YES, 79.42% voted NO. 
+Of those in the **FAVOR** group 41.44% voted **YES**, 58.56% voted **NO**.
+Of those in the **OPPOSE** group 20.58% voted **YES**, 79.42% voted **NO**. 
 Although both groups have the majority decision of NO, those that oppose capital punishment want nothing to do with gun ownership. This could mean that if someone doesn't believe in capital punishment, they obviously do not like guns either.
 
 
 ```{r}
 rowPerc(god_table)
 ```
-Comparing the No's, MAYBE's, and YES's we can seee that about 30% voted YES on gun ownership and about 68% voted NO. We can see that there are more people who do not beleive in GOD that want nothing to do with gun ownership.
+Comparing the **No's**, **MAYBE's**, and **YES's** we can seee that about 30% voted YES on gun ownership and about 68% voted **NO**. We can see that there are more people who do not beleive in GOD that want nothing to do with gun ownership.
 
 
 # Inferential Results
@@ -161,9 +161,9 @@ We will now need to run four chi-square tests using the chisqtestGC function fro
 Belief in Gun Ownership vs. Sex:
  We will form our two hypothesis
  
- Ho Belief in gun ownership is independent of Sex.  
+$H_0$ Belief in gun ownership is independent of Sex.    
  
- Ha belief in gun ownership and sex are related. (not independent)
+$H_a$ Belief in gun ownership and sex are related. (not independent)
  
  
 ```{r}
@@ -175,9 +175,9 @@ Our P-Value is 0. The chances of getting such a result are infinitely small if t
 Belief in Gun Ownership vs. Race
 Our two hypothesis:
  
-Ho: Belief in gun ownership is independent of Race.  
+$H_0$ Belief in gun ownership is independent of Race.    
 
-Ha: Belief in gun ownership and Race are related. (not independent)  
+$H_a$ Belief in gun ownership and Race are related. (not independent)  
 
 
 ```{r}
@@ -186,12 +186,12 @@ chisqtestGC(race_table)
 Our P-Value is 0. The chances of getting such a result are infinitely small if the null hypothesis is true. We therefore choose to reject the null hypothesis. So it appears that Race and belief in gun ownership are related.
 
 
-Belief in Gun Ownership vs. Political views:
-Our two hypothesis are:
+Belief in Gun Ownership vs. Political views:  
+Our two hypothesis are:  
 
-Ho: Belief in gun ownership is independent of political view.  
+$H_0$ Belief in gun ownership is independent of political view.    
 
-Ha: Belief in gun ownership and political views are related. (not independent)  
+$H_a$ Belief in gun ownership and political views are related. (not independent)  
 
 
 ```{r}
@@ -201,11 +201,12 @@ Our P-Value is 0. The chances of getting such a result are infinitesimally small
 
 
 Belief in Gun Ownership vs Belief in Capital Punishment:
-Our two hypothesis are:
+Our two hypothesis are:  
 
-Ho: Belief in gun ownership is independent of belief in capital punishment.  
 
-Ha: Belief in gun ownership and belief in capital punishment are related. (not independent)  
+$H_0$ Belief in gun ownership is independent of belief in capital punishment.    
+
+$H_a$Belief in gun ownership and belief in capital punishment are related. (not independent)  
 
 
 ```{r}
@@ -217,9 +218,9 @@ Our P-Value is 0. The chances of getting such a result are infinitesimally small
 Belief in Gun Ownership vs. Belief in God:
 Our two hypothesis are:
 
-Ho: Belief in gun ownership is independent of belief in God.  
+$H_0$ Belief in gun ownership is independent of belief in God.    
 
-Ha: Belief in gun ownership and belief in God are related. (not independent)  
+$H_a$Belief in gun ownership and belief in God are related. (not independent)  
 
 
 
@@ -232,15 +233,15 @@ Our P-Value is 0.9739. This means the probability of getting a sample like this 
 <!--Discussion and conclusion here.  If you found a relationship be sure to consider whether the relationship occurs because one of the variables causes the other, or whether they perhasps are related for some other reason.  Watch the chapter 6 videos from the GeorgeTown videos collection.!-->
 After viewing the results graphically, numerically, and running chi-square tests on the data, we can conclude the following:
 
-Race and gun ownership are related.
-Sex and gun ownership are related.
-Political views and gun ownership are related.
-Belief in capital punishment and gun ownership are related.
-Belief in God and gun ownership are related.
+* Race and gun ownership are related.
+* Sex and gun ownership are related.
+* Political views and gun ownership are related.
+* Belief in capital punishment and gun ownership are related.
+* Belief in God and gun ownership are related.
 
-If we were to make a profile of those that voted YES on gun ownership they might be WHITE, MALE, CONSERVATIVE, in FAVOR of capital punishment, and MAYBE believe or ACTUALLY believe in GOD.
+If we were to make a profile of those that voted YES on gun ownership they might be **WHITE**, **MALE**, **CONSERVATIVE**, in **FAVOR** of capital punishment, and **MAYBE** believe or **ACTUALLY** believe in GOD.
 
-If we were to make a profile of those that voted NO on gun ownership they might be BLACK or OTHER, FEMALE, LIBERAL or MODERATE, OPPOSE capital punishment, and DO NOT believe in GOD. 
+If we were to make a profile of those that voted NO on gun ownership they might be **BLACK** or **OTHER**, **FEMALE**, **LIBERAL** or **MODERATE**, **OPPOSE** capital punishment, and **DO NOT** believe in GOD. 
 
 So without taking any other variables into account, there is a relationship between race, sex, political beliefs, beliefs on capital punishment, belief in God and gun ownership. Many participants in these groups voted NO on gun ownership but it seems as though they are influenced by their specific group. It would be interesting to research a generation gap on gun ownership. Would there be a relationship with age and gun ownership? The GSS data has over 3000 different variables which means there are many different factors to compare.
 
